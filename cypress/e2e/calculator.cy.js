@@ -56,5 +56,11 @@ describe("Calculator", () => {
     cy.get(".display").should("contain", "-2");
   });
 
-  xit("How does the code perform in exceptional circumstances", () => {});
+  it("8 divided by 0 should return undefined", () => {
+    cy.get("#number8").click();
+    cy.get("#operator-divide").click();
+    cy.get("#number0").click();
+    cy.get("#operator-equals").click();
+    cy.get(".display").should("contain", NaN);
+  });
 });
